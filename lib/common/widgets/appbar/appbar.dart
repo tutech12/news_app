@@ -6,7 +6,7 @@ import 'package:news_app_task/utils/device/device_utility.dart';
 import 'package:iconsax/iconsax.dart';
 
 class TAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const TAppBar({super.key, this.showBackArrow = false,  this.istitle=true});
+  const  TAppBar({super.key, this.showBackArrow = false,  this.istitle=true});
 
   final bool showBackArrow;
   final bool istitle;
@@ -24,19 +24,20 @@ class TAppBar extends StatelessWidget implements PreferredSizeWidget {
             : null,
         title: istitle?Container(
           padding: EdgeInsets.all(TSizes.spaceBtwItems),
-          width: TDeviceUtils.getAppBarHeight() * 4.9,
           decoration: BoxDecoration(
             color: TColors.grey,
               borderRadius: BorderRadius.circular(TSizes.lg),
               ),
-          child: Row(
+          child: Row(mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text(
-                'Search News',
-                style: Theme.of(context).textTheme.labelMedium,
+              Expanded(
+                child: Text(
+                  'Search News',
+                  style: Theme.of(context).textTheme.labelMedium,
+                ),
               ),
-              SizedBox(width: TSizes.spaceBtwSections*4,),
-              Expanded(child: Icon(Iconsax.search_normal))
+
+              Icon(Iconsax.search_normal)
             ],
           ),
           height: TDeviceUtils.getAppBarHeight(),

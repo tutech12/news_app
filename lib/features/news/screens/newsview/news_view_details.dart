@@ -10,14 +10,14 @@ import 'package:news_app_task/utils/device/device_utility.dart';
 class NewsViewDetails extends StatelessWidget {
   const NewsViewDetails({super.key, required this.data});
 
-  final Article data;
+  final Article? data;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: GestureDetector(
         onTap: () => Get.back(),
-        child: BorderBox(
+        child: BorderBox(isBorder: false,
           width: TSizes.spaceBtwSections*1.3,
           height: TSizes.spaceBtwSections*1.3,
 
@@ -36,7 +36,7 @@ class NewsViewDetails extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: NetworkImage(data.urlToImage!), fit: BoxFit.cover)),
+                image: data!.urlToImage!.startsWith('https')?NetworkImage(data!.urlToImage!):AssetImage(data!.urlToImage!), fit: BoxFit.fill)),
         child: Padding(
           padding: const EdgeInsets.all(12),
           child: Column(
@@ -44,7 +44,7 @@ class NewsViewDetails extends StatelessWidget {
             children: [
               Center(
                   child: Text(
-                data.title,
+                data!.title,
                 style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                     color: Colors.white, backgroundColor: Colors.black45),
               )),
@@ -55,7 +55,7 @@ class NewsViewDetails extends StatelessWidget {
                     width: 5,
                   ),
                   Expanded(
-                      child: Text(data.author!,
+                      child: Text(data!.author!,
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium!
@@ -84,7 +84,7 @@ class NewsViewDetails extends StatelessWidget {
           color: Colors.black45,
           child: SingleChildScrollView(  // Optional: If text is long
             child: Text(
-              data.description!,
+              data!.description!,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -103,7 +103,7 @@ class NewsViewDetails extends StatelessWidget {
                       padding: WidgetStateProperty.all(
                           EdgeInsets.all(TSizes.spaceBtwItems))),
                   onPressed: () async{
-                   TDeviceUtils.launchUrl(data.url);
+                   TDeviceUtils.launchUrl(data!.url);
                   },
                   child: Text("Click For More"))
             ],

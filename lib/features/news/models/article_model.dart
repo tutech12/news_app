@@ -21,13 +21,13 @@ class Article {
 
   factory Article.fromJson(Map<String, dynamic> json) {
     return Article(
-      author: json['author'] as String?,
+      author: json['author'] as String? ?? '',
       title: json['title'] as String? ?? 'No Title', // Fallback for null
-      description: json['description'] as String?,
+      description: json['description'] as String? ?? 'No Description',
       url: json['url'] as String? ?? '', // Fallback for null
       urlToImage: json['urlToImage'] as String? ??'assets/images/noimg.png',
       publishedAt: DateTime.parse(json['publishedAt'] as String? ?? DateTime.now().toIso8601String()),
-      content: json['content'] as String?,
+      content: json['content'] as String? ?? '',
       sourceName: json['source'] is Map<String, dynamic>
           ? (json['source']['name'] as String?)
           : null,

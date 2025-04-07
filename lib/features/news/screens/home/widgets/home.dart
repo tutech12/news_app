@@ -204,22 +204,26 @@ class HomeScreen extends StatelessWidget {
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                   const SizedBox(height: TSizes.spaceBtwItems),
-                                  Row(
-                                    children: [
-                                      Text(
-                                        '15 mins read',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .labelMedium,
-                                      ),
-                                      const SizedBox(width: TSizes.spaceBtwSections * 3),
-                                      Text(
-                                        'Today',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .labelMedium,
-                                      )
-                                    ],
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 5),
+                                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          '15 mins read',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .labelMedium,
+                                        ),
+
+                                        Text(
+                                          'Today',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .labelMedium,
+                                        ),
+
+                                      ],
+                                    ),
                                   )
                                 ],
                               ),
@@ -303,10 +307,11 @@ class BorderBox extends StatelessWidget {
         image: isImage
             ? DecorationImage(
           image: url.startsWith('http')
-              ? NetworkImage(url) as ImageProvider
+              ? NetworkImage(url,) as ImageProvider
               : const AssetImage(
               'assets/images/noimg.png'),
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
+
         )
             : null,
       ),

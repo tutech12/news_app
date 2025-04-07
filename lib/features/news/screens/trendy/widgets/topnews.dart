@@ -70,21 +70,26 @@ class TopNews extends StatelessWidget {
                     );
                   }
 
-                  return ListView.separated(
-                    controller: controller.scrollController,
-                    itemCount: controller.articlesT.length + (controller.isLoadingMore.value ? 1 : 0),
-                    physics: const AlwaysScrollableScrollPhysics(),
-                    separatorBuilder: (_, __) => const SizedBox(height: TSizes.spaceBtwItems),
-                    itemBuilder: (_, index) {
-                      if (index >= controller.articlesT.length) {
-                        return const Padding(
-                          padding: EdgeInsets.all(16.0),
-                          child: Center(child: CircularProgressIndicator()),
-                        );
-                      }
-                      final article = controller.articlesT[index];
-                      return _NewsItem(article: article);
+                  return RefreshIndicator(
+                    onRefresh: () async {
+                      await controller.fetchCategoryTodayTopHeadlines();
                     },
+                    child: ListView.separated(
+                      controller: controller.scrollController,
+                      itemCount: controller.articlesT.length + (controller.isLoadingMore.value ? 1 : 0),
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      separatorBuilder: (_, __) => const SizedBox(height: TSizes.spaceBtwItems),
+                      itemBuilder: (_, index) {
+                        if (index >= controller.articlesT.length) {
+                          return const Padding(
+                            padding: EdgeInsets.all(16.0),
+                            child: Center(child: CircularProgressIndicator()),
+                          );
+                        }
+                        final article = controller.articlesT[index];
+                        return _NewsItem(article: article);
+                      },
+                    ),
                   );
                 }),
               ),

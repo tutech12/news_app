@@ -109,7 +109,5 @@ class NewsController extends GetxController {
     category.refresh();
   }
 
-  // Add this getter for isLoadingMore
-  // bool get isLoadingMore => isLoadingMore.value;
-  // final isLoadingMore = false.obs;
+
 }
