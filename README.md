@@ -1,16 +1,38 @@
-# news_app_task
+# 📰 NewsApp
 
-A news Application project.
+A modern news application that delivers the latest headlines and articles from various sources.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## ✨ Features
 
-A few resources to get you started if this is your first Flutter project:
+- Latest news from multiple categories (general, business, technology, etc.)
+- Responsive design for all screen sizes
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📱 Screenshots
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/afcb1c86-5003-490e-8df0-789d0bd301e8" alt="Home Screen" width="200"/>
+ &ensp; 
+  <img src="https://github.com/user-attachments/assets/af243475-62de-4ed9-8ee0-f82ac321de8c" alt="Article View" width="200"/>
+  &ensp; 
+  <img src="https://github.com/user-attachments/assets/2acd11d4-db34-4247-81f3-2f68cdcca077" alt="Search" width="200"/>
+  &ensp; 
+   <img src="https://github.com/user-attachments/assets/a81e303b-0f84-46e5-a972-01d735a79fcd" alt="Search" width="200"/>
+</div>
+
+
+## 🛠️ Technologies Used
+
+- Frontend: Flutter
+- News API: [NewsAPI.org/Other]
+- State Management: getx
+
+
+## 🚀 Getting Started
+
+
+### Installation
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/newsapp.git
